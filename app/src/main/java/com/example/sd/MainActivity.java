@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private ListView noticeListView;
     private NoticeListAdapter adapter;
     private List<Notice> noticeList;
-    Button abtn_url;
-    Button bbtn_url;
-    Button cbtn_url;
+    Button abtn_url;     //조선대 공지사항
+    Button bbtn_url;     //sw
+    Button cbtn_url;     //cu+
 
 
     @Override
@@ -88,7 +88,24 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        statisticsButton.setOnClickListener(new View.OnClickListener() {
+        scheduleButton.setOnClickListener(new View.OnClickListener() {    //시간표 클릭시
+            @Override
+            public void onClick(View view) {
+                notice.setVisibility(View.GONE);
+                CourseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                MemoButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment, new ScheduleFragment());
+                fragmentTransaction.commit();
+
+
+            }
+
+        });
+        statisticsButton.setOnClickListener(new View.OnClickListener() {      //통계 클릭시
             @Override
             public void onClick(View view) {
                 notice.setVisibility(View.GONE);
@@ -105,24 +122,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        scheduleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                notice.setVisibility(View.GONE);
-                CourseButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                statisticsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                scheduleButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-                MemoButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-                FragmentManager fragmentManager =getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment, new ScheduleFragment());
-                fragmentTransaction.commit();
 
-
-
-            }
-        });
-        MemoButton.setOnClickListener(new View.OnClickListener() {
+        MemoButton.setOnClickListener(new View.OnClickListener() {           //메모 클릭시
             @Override
             public void onClick(View view) {
                 notice.setVisibility(View.GONE);
