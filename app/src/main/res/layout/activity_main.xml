@@ -24,7 +24,7 @@
             android:text="강의목록"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:textSize="18dp"
+            android:textSize="12dp"
             android:background="@color/colorPrimary"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"/>
@@ -36,8 +36,8 @@
             android:text="시간표"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:background="@color/design_default_color_on_primary"
+            android:textSize="12dp"
+            android:background="@color/colorPrimary"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"/>
         <Button
@@ -48,8 +48,20 @@
             android:text="체크리스트"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:background="@color/design_default_color_on_primary"
+            android:textSize="12dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/MemoButton"
+            android:text="메모"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            android:background="@color/colorPrimary"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"/>
 
@@ -58,6 +70,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,56 +79,96 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="vertical"
+                android:layout_height="270dp"
+                android:layout_marginTop="8dp"
                 android:background="@color/colorPrimary"
-                android:layout_marginTop="8dp">
+                android:orientation="vertical">
                 "
 
                 <ImageButton
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/chosunlogo"/>
+                    android:src="@drawable/chosunlogo" />
 
-                ,<TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="공지사항"
-                android:textColor="#000000"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"/>
+                ,
 
-                <Button
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="조선대 학사공지"
-                    android:id="@+id/btn_url"
-                    android:textSize="20dp"/>
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="공지사항"
+                    android:textColor="#ffffff"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="☎062-230-7114☎"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/noticeListView"
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <Button
+                android:id="@+id/btn_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  조선대 학사공지  "
+                android:textColor="#000000"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/sw_url"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:divider="#ffffff"
-                android:dividerHeight="10dp"></ListView>
+                android:layout_height="wrap_content"
+                android:text="SW중심대학산업단"
+                android:textColor="#000000"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
 
 
 
         </LinearLayout>
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/cu_url"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fragment">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="학생통합지원시스템(cu+)"
+            android:textColor="#000000"
+            android:textSize="19dp"
+            android:textStyle="bold" />
 
-        </RelativeLayout>
+
 
     </FrameLayout>
 

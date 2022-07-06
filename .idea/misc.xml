@@ -18,9 +18,10 @@
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.143" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/drawable/ic_launcher_background.xml" value="0.143" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/activity_register.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/fragment_course.xml" value="0.2" />
+        <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/fragment_memo.xml" value="0.15353260869565216" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/fragment_schedule.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/fragment_statistics.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/FollowMe/app/src/main/res/layout/notice.xml" value="0.25364583333333335" />

@@ -11,7 +11,7 @@ import java.util.List;
 public class NoticeListAdapter extends BaseAdapter {
 
     private Context context;
-    private List<Notice> noticeList;
+    private List<Notice>  noticeList;
 
     public NoticeListAdapter(Context context, List<Notice> noticeList) {
         this.context = context;
@@ -37,6 +37,7 @@ public class NoticeListAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
        View v= View.inflate(context, R.layout.notice, null);
        TextView noticeText = (TextView) v.findViewById(R.id.noticeText);
+
 
 
        noticeText.setText(noticeList.get(i).getNotice());
