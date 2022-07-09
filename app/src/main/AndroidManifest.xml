@@ -13,9 +13,11 @@
         android:theme="@style/Theme.SD"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".add_grade_activity"
+            android:exported="false" />
+        <activity
             android:name=".AddCourseActivity"
-            android:exported="false"
-           />
+            android:exported="false" />
         <activity
             android:name=".AddNoteActivity"
             android:exported="false"

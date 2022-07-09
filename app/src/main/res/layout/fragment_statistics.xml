@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="학점계산기"
+            android:text="학점"
             android:textColor="@color/app_name_color"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -27,19 +27,122 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <Button
             android:id="@+id/add_course"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.955"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_add2" />
+            android:background="@drawable/ic_baseline_calculate_24"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50sp"
+        android:background="#FF88C7F8"
+        >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:text="1학년 1학기"
+                android:layout_marginTop="2sp"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                />
+
+        </TableRow>
+
+
+
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            >
+
+            <ListView
+
+                android:layout_width="400dp"
+                android:layout_height="60sp"
+
+                android:background="@drawable/round"
+                android:shape="rectangle"
+                android:backgroundTint="#ffffff"
+                android:layout_marginLeft="4sp"
+
+                />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:text="1학년 2학기"
+                android:layout_marginTop="10sp"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+
+            >
+
+            <ListView
+
+                android:layout_width="93sp"
+                android:layout_height="60sp"
+
+                android:background="@drawable/round"
+                android:shape="rectangle"
+                android:backgroundTint="#ffffff"
+                android:layout_marginLeft="4sp"
+
+                />
+        </TableRow>
+
+
+
+
+
+
+    </TableLayout>
+
+
 
 </RelativeLayout>
