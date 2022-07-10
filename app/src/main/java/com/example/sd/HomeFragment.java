@@ -105,7 +105,7 @@ public class HomeFragment extends Fragment {
 
         cbtn_url.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent cuintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://sw.chosun.ac.kr/home/kor/board.do?menuPos=62"));
+                Intent cuintent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cuplus.chosun.ac.kr/main/"));
                 startActivity(cuintent);
             }
         });
