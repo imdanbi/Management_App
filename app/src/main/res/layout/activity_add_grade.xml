@@ -339,8 +339,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="23dp">
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="15dp">
 
             <Button
                 android:id="@+id/zero"
@@ -358,7 +358,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
             android:weightSum="10"
             >
 
@@ -366,7 +365,39 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:text="이수 학점"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:id="@+id/goal"
+                />
+
+            <TextView
+                android:id="@+id/goal2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="0"
+                android:textSize="15dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                />
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:weightSum="10"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:textSize="15dp"
                 android:text="학점 평균"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
@@ -379,16 +410,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:text="0.0"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textColor="#ffffff"
                 android:textStyle="bold" />
         </TableRow>
-
-
-
-
-
-
 
 
 

@@ -3,6 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Fol/app/src/main/res/drawable/background.xml" value="0.121" />
+        <entry key="..\:/Fol/app/src/main/res/drawable/empty.xml" value="0.121" />
+        <entry key="..\:/Fol/app/src/main/res/drawable/ic_baseline_calculate_24.xml" value="0.121" />
+        <entry key="..\:/Fol/app/src/main/res/drawable/ic_delete.xml" value="0.121" />
+        <entry key="..\:/Fol/app/src/main/res/drawable/round.xml" value="0.121" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_add.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_add_course.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_add_grade.xml" value="0.2" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_add_note.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_pplus.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_pplus2.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_time_picker.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/activity_update.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/fragment_memo.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/fragment_statistics.xml" value="0.2" />
+        <entry key="..\:/Fol/app/src/main/res/layout/list_row.xml" value="0.2" />
+        <entry key="..\:/Fol/app/src/main/res/layout/main_actionbar.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/layout/note_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Fol/app/src/main/res/menu/add_note_menu.xml" value="0.25364583333333335" />
+        <entry key="..\:/Fol/app/src/main/res/menu/addcoursemenu.xml" value="0.25364583333333335" />
+        <entry key="..\:/Fol/app/src/main/res/menu/grade_menu.xml" value="0.2526041666666667" />
+        <entry key="..\:/Fol/app/src/main/res/menu/main_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/ksj25/AndroidStudioProjects/SD/app/src/main/res/drawable/button.xml" value="0.1" />
         <entry key="..\:/Users/ksj25/AndroidStudioProjects/SD/app/src/main/res/drawable/ic_baseline_https_24.xml" value="0.1" />
         <entry key="..\:/Users/ksj25/AndroidStudioProjects/SD/app/src/main/res/drawable/ic_baseline_mail_24.xml" value="0.1" />

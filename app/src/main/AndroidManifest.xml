@@ -13,10 +13,19 @@
         android:theme="@style/Theme.SD"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EditActivity"
+            android:name=".pplus_activity__"
             android:exported="false" />
         <activity
-            android:name=".Timetable.EditActivity"
+            android:name=".Update_activity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".Add_activity"
+            android:exported="false"
+            android:label="Modify Grade and Quiz"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".EditActivity"
             android:exported="false" />
         <activity
             android:name=".add_grade_activity"

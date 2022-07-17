@@ -5,48 +5,50 @@ package com.example.sd;
 import static com.example.sd.MemoFragment.ADD_NODE_REQUEST;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StatisticsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+
 public class StatisticsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
+
+
     public StatisticsFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StatisticsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static StatisticsFragment newInstance(String param1, String param2) {
         StatisticsFragment fragment = new StatisticsFragment();
         Bundle args = new Bundle();
@@ -65,21 +67,82 @@ public class StatisticsFragment extends Fragment {
         }
     }
 
-   ImageView add_course;
+
+    ImageView add_course, empty_imageview;
+    TextView no_data;
+    RecyclerView recyclerView;
+    FloatingActionButton add_button;
+    MyDatabaseHelper myDB;
+    ArrayList<String> grade_id, grade_semester, grade_result;
+    CustomAdapter customAdapter;
+
 
 
     public void onActivityCreated(Bundle b) {
         super.onActivityCreated(b);
         add_course = (ImageView) getView().findViewById(R.id.add_course);
-        add_course.setOnClickListener(new View.OnClickListener() {
+        recyclerView = (RecyclerView)getView().findViewById(R.id.recyclerView);
+        add_button = (FloatingActionButton) getView().findViewById(R.id.add_button);
+        empty_imageview = (ImageView) getView().findViewById(R.id.empty_imageview);
+        no_data = (TextView) getView().findViewById(R.id.no_data);
+
+       add_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), add_grade_activity.class);
                 startActivityForResult(intent,ADD_NODE_REQUEST);
             }
         });
+
+        add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),Add_activity.class);
+                startActivityForResult(intent,ADD_NODE_REQUEST);
+            }
+        });
+
+        myDB = new MyDatabaseHelper(getActivity());
+        grade_id = new ArrayList<>();
+        grade_semester = new ArrayList<>();
+        grade_result = new ArrayList<>();
+
+        storeDataInArrays();
+        customAdapter = new CustomAdapter(getActivity(),getActivity(), grade_id, grade_semester, grade_result);
+        recyclerView.setAdapter(customAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
     }
 
+    void storeDataInArrays(){
+        Cursor cursor = myDB.readALLData();
+        if(cursor.getCount() == 0){
+            empty_imageview.setVisibility(View.VISIBLE);
+            no_data.setVisibility(View.VISIBLE);
+        }else{
+            while (cursor.moveToNext()){
+                grade_id.add(cursor.getString(0));
+                grade_semester.add(cursor.getString(1));
+                grade_result.add(cursor.getString(2));
+            }
+            empty_imageview.setVisibility(View.GONE);
+            no_data.setVisibility(View.GONE);
+        }
+    }
+
+    /*@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menuInflater.inflate(R.menu.grade_menu, menu);
+    }*/
+
+
+    @Override
+     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            setRetainInstance(true);
+        }
+    }
 
 
     @Nullable
@@ -89,4 +152,6 @@ public class StatisticsFragment extends Fragment {
 
         return rootView;
     }
+
+
 }

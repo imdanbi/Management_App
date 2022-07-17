@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class add_grade_activity extends AppCompatActivity {
-    TextView tv;
+    TextView tv, tv1;
     EditText edit1, edit2, edit3, edit4, edit5, edit6, edit7 , edit8;
     Spinner spinn1, spinn2, spinn3, spinn4, spinn5, spinn6, spinn7, spinn8, spinn9;
     double edd1, edd2, edd3, edd4, edd5, edd6, edd7,edd8;
@@ -24,6 +24,7 @@ public class add_grade_activity extends AppCompatActivity {
 
 
         tv = (TextView)findViewById(R.id.write2) ;
+        tv1 = (TextView)findViewById(R.id.goal2);
 
         edit1 = (EditText) findViewById(R.id.count1);
         edit2 = (EditText) findViewById(R.id.count2);
@@ -329,12 +330,14 @@ public class add_grade_activity extends AppCompatActivity {
 
 
         double finish = edd1+ edd2+ edd3+ edd4 + edd5 + edd6 + edd7 + edd8  ;
-        double avg = finish / (ed1+ed2+ed3+ed4+ed5+ed6+ed7+ed8);
-        String.format("%.2f",avg);
+        double ggoal = finish / (ed1+ed2+ed3+ed4+ed5+ed6+ed7+ed8);
+        double avg = finish / ggoal;
 
 
 
+        tv1.setText(String.format("%.0f",ggoal)+ "학점");
         tv.setText(String.valueOf(avg)+ "점");
+
 
 
     }
@@ -358,6 +361,7 @@ public class add_grade_activity extends AppCompatActivity {
         su8.setText("");
 
         tv.setText("0.0점");
+        tv1.setText("0학점");
         su1.requestFocus();
 
         spinn1.setSelection(0);

@@ -31,24 +31,91 @@
             app:layout_constraintTop_toTopOf="parent" />
         <ImageView
             android:id="@+id/add_course"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.955"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_calculate_24" />
+            android:background="@drawable/ic_baseline_calculate_24"
+            />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="46sp"
+        android:background="#FF88C7F8"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3sp"
+            android:text="Grade list"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="409dp"
+            android:layout_height="650dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_row"
+            />
+
+
+
+    </TableLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="731dp"
+        android:clickable="true"
+        app:backgroundTint="#6189CF"
+        app:layout_anchor="@+id/tableLayout2"
+        app:layout_anchorGravity="bottom|right"
+        android:layout_marginRight="30dp"
+        app:srcCompat="@drawable/ic_add2"
+        android:layout_marginBottom="30dp"/>
+
+    <ImageView
+        android:id="@+id/empty_imageview"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:listitem="" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="160sp"
+        app:srcCompat="@drawable/empty"
+        android:alpha="0.4"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data"
+        android:layout_gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:layout_marginBottom="45dp"
+        android:alpha="0.4"
+        android:visibility="gone"
+         />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
