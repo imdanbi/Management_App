@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class Add_activity extends AppCompatActivity {
 
-    EditText input1,input2;
+    EditText input1,input2,input3;
     Button add_button;
 
     @Override
@@ -28,6 +28,7 @@ public class Add_activity extends AppCompatActivity {
 
         input1 = findViewById(R.id.input1);
         input2 = findViewById(R.id.input2);
+        input3 = findViewById(R.id.input3);
         add_button = findViewById(R.id.add_button);
 
         add_button.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +36,9 @@ public class Add_activity extends AppCompatActivity {
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Add_activity.this);
                 myDB.addGrade(input1.getText().toString().trim(),
-                        input2.getText().toString().trim());
+                        input2.getText().toString().trim(),
+                        Integer.valueOf(input3.getText().toString().trim()));
+
             }
         });
 
@@ -52,10 +55,6 @@ public class Add_activity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.delete_all:
                 confirmDialog();
-                break;
-            case R.id.Quiz:
-                Intent i = new Intent(this, pplus_activity__.class);
-                startActivity(i);
                 break;
 
 

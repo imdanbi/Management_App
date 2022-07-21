@@ -3,6 +3,7 @@ package com.example.sd;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -11,13 +12,14 @@ import androidx.annotation.Nullable;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
-    private static final String DATABASE_NAME = "Grade_list2.db";
+    private static final String DATABASE_NAME = "Grade_list4.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "grade_list1";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_SEMESTER = "grade_semester";
-    private static final String COLUMN_RESULT = "grade_result";
+    private static final String COLUMN_SUBJECT = "grade_subject";
+    private static final String COLUMN_GRADE = "grade_grade";
+    private static final String COLUMN_SCHOOL = "grade_school";
 
 
     MyDatabaseHelper(@Nullable Context context) {
@@ -29,8 +31,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_SEMESTER + " TEXT," +
-                COLUMN_RESULT + " TEXT);";
+                COLUMN_SUBJECT + " TEXT, " +
+                COLUMN_GRADE + " TEXT, " +
+                COLUMN_SCHOOL + " INTEGER);";
         db.execSQL(query);
     }
 
@@ -40,22 +43,30 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addGrade(String semester, String result){
+    void addGrade(String subject, String grade, int school){
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_SEMESTER, semester);
-        cv.put(COLUMN_RESULT, result);
+        db.beginTransaction();
 
-
-            long result_t = db.insert(TABLE_NAME,null, cv);
+        try{
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN_SUBJECT, subject);
+            cv.put(COLUMN_GRADE, grade);
+            cv.put(COLUMN_SCHOOL, school);
+            long result_t = db.insert(TABLE_NAME,null,cv);
             if(result_t == -1){
                 Toast.makeText(context, "다시 시도해주세요.", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(context, "추가 되었습니다.", Toast.LENGTH_SHORT).show();
             }
-
+            db.setTransactionSuccessful();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            db.endTransaction();
         }
+
+    }
 
 
     Cursor readALLData(){
@@ -69,11 +80,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id, String semester, String result){
+    void updateData(String row_id, String subject, String grade, String school){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_SEMESTER, semester);
-        cv.put(COLUMN_RESULT, result);
+        cv.put(COLUMN_SUBJECT, subject);
+        cv.put(COLUMN_GRADE, grade);
+        cv.put(COLUMN_SCHOOL,school);
+
         long result_t = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result_t == -1){
             Toast.makeText(context, "다시 시도해주세요.", Toast.LENGTH_SHORT).show();

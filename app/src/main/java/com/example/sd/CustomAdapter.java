@@ -23,18 +23,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     private Activity activity;
-    private ArrayList grade_id, grade_semester, grade_result;
+    private ArrayList grade_id, grade_subject, grade_grade, grade_school;
 
     Animation translate_anim;
 
     int position;
 
-    CustomAdapter(Activity activity, Context context, ArrayList grade_id, ArrayList grade_semester, ArrayList grade_result){
+    CustomAdapter(Activity activity, Context context, ArrayList grade_id, ArrayList grade_subject, ArrayList grade_grade, ArrayList grade_school){
         this.activity = activity;
         this.context = context;
         this.grade_id = grade_id;
-        this.grade_semester = grade_semester;
-        this.grade_result = grade_result;
+        this.grade_subject = grade_subject;
+        this.grade_grade = grade_grade;
+        this.grade_school = grade_school;
 
     }
 
@@ -52,18 +53,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
 
         holder.grade_id_txt.setText(String.valueOf(grade_id.get(holder.getAdapterPosition())));
-        holder.grade_semester_txt.setText(String.valueOf(grade_semester.get(holder.getAdapterPosition())));
-        holder.grade_result_txt.setText(String.valueOf(grade_result.get(holder.getAdapterPosition())));
-
-
+        holder.grade_subject_txt.setText(String.valueOf(grade_subject.get(holder.getAdapterPosition())));
+        holder.grade_grade_txt.setText(String.valueOf(grade_grade.get(holder.getAdapterPosition())));
+        holder.grade_school_txt.setText(String.valueOf(grade_school.get(holder.getAdapterPosition())));
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, Update_activity.class);
                 intent.putExtra("id", String.valueOf(grade_id.get(holder.getAdapterPosition())));
-                intent.putExtra("semester", String.valueOf(grade_semester.get(holder.getAdapterPosition())));
-                intent.putExtra("result", String.valueOf(grade_result.get(holder.getAdapterPosition())));
+                intent.putExtra("subject", String.valueOf(grade_subject.get(holder.getAdapterPosition())));
+                intent.putExtra("grade", String.valueOf(grade_grade.get(holder.getAdapterPosition())));
+                intent.putExtra("school", String.valueOf(grade_school.get(holder.getAdapterPosition())));
+
                 activity.startActivityForResult(intent, 1);
 
             }
@@ -78,17 +80,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView grade_id_txt,itemsemester, itemgrade,grade_semester_txt, grade_result_txt;
+        TextView grade_id_txt,grade_subject_txt, grade_grade_txt, grade_school_txt;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            grade_id_txt = itemView.findViewById(R.id.grade_id_txt);
-            itemsemester = itemView.findViewById(R.id.itemsemester);
-            itemgrade = itemView.findViewById(R.id.itemgrade);
+            grade_id_txt= itemView.findViewById(R.id.grade_id_txt);
+            grade_subject_txt = itemView.findViewById(R.id.grade_subject_txt);
+            grade_grade_txt= itemView.findViewById(R.id.grade_grade_txt);
+            grade_school_txt = itemView.findViewById(R.id.grade_school_txt);
 
-            grade_semester_txt = itemView.findViewById(R.id.grade_semester_txt);
-            grade_result_txt = itemView.findViewById(R.id.grade_result_txt);
             mainLayout = itemView.findViewById(R.id. mainLayout);
 
             translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);

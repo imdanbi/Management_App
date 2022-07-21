@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 public class Update_activity extends AppCompatActivity {
 
-    EditText input1, input2;
+    EditText input1, input2, input3;
     Button update_button, delete_button;
-    String id, semester, result;
+    String id, subject, grade, school;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class Update_activity extends AppCompatActivity {
 
         input1 = findViewById(R.id.input11);
         input2 = findViewById(R.id.input22);
+        input3 = findViewById(R.id.input33);
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
@@ -32,7 +33,7 @@ public class Update_activity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
         if(ab != null){
-            ab.setTitle(semester);
+            ab.setTitle(subject);
         }
 
         update_button.setOnClickListener(new View.OnClickListener() {
@@ -40,10 +41,11 @@ public class Update_activity extends AppCompatActivity {
             public void onClick(View view) {
 
                 MyDatabaseHelper myDB = new MyDatabaseHelper(Update_activity.this);
-                semester = input1.getText().toString().trim();
-                result = input2.getText().toString().trim();
+                subject = input1.getText().toString().trim();
+                grade = input2.getText().toString().trim();
+                school = input3.getText().toString().trim();
 
-                myDB.updateData(id, semester, result);
+                myDB.updateData(id, subject, grade, school);
 
             }
         });
@@ -57,14 +59,16 @@ public class Update_activity extends AppCompatActivity {
 
     }
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("id") && getIntent().hasExtra("semester") && getIntent().hasExtra("result") ){
+        if(getIntent().hasExtra("id") && getIntent().hasExtra("subject") && getIntent().hasExtra("grade") && getIntent().hasExtra("school")){
 
             id = getIntent().getStringExtra("id");
-            semester = getIntent().getStringExtra("semester");
-            result = getIntent().getStringExtra("result");
+            subject = getIntent().getStringExtra("subject");
+            grade = getIntent().getStringExtra("grade");
+            school = getIntent().getStringExtra("school");
 
-            input1.setText(semester);
-            input2.setText(result);
+            input1.setText(subject);
+            input2.setText(grade);
+            input3.setText(school);
 
         }else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
@@ -73,7 +77,7 @@ public class Update_activity extends AppCompatActivity {
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete");
-        builder.setMessage(semester+ " 항목을 삭제하시겠습니까?");
+        builder.setMessage(subject+ " 항목을 삭제하시겠습니까?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

@@ -4,8 +4,12 @@ package com.example.sd;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,7 +46,7 @@ public class pplus_activity__ extends AppCompatActivity implements View.OnClickL
         answer4.setOnClickListener(this);
         submitbt.setOnClickListener(this);
 
-        total.setText("남은 문제 수 : "+ totalquestion);
+        total.setText("총 문제 수: "+ totalquestion);
 
 
         new_change();
@@ -101,5 +105,40 @@ public class pplus_activity__ extends AppCompatActivity implements View.OnClickL
     }
     void blank(){
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.study_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Quiz:
+                Intent i = new Intent(this, pplus_activity__.class);
+                startActivity(i);
+                break;
+            case R.id.Quiz2:
+                Intent intent = new Intent(this, pplus2_activity.class);
+                startActivity(intent);
+                break;
+            case R.id.Quiz3:
+                Intent intent3 = new Intent(this, pplus3_activity.class);
+                startActivity(intent3);
+                break;
+            case R.id.Quiz4:
+                Intent intent4 = new Intent(this, pplus4_activity.class);
+                startActivity(intent4);
+                break;
+            case R.id.Quiz5:
+                Intent intent5 = new Intent(this, pplus5_activity.class);
+                startActivity(intent5);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

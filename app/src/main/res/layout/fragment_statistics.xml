@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="43dp"
         android:background="@drawable/titlebar_underline"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -17,22 +17,27 @@
 
         <TextView
             android:id="@+id/text_statistics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
             android:gravity="center"
-            android:text="학점계산기"
+            android:text="Study"
             android:textColor="@color/app_name_color"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
         <ImageView
             android:id="@+id/add_course"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,36 +56,64 @@
         android:id="@+id/tableLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="46sp"
-        android:background="#FF88C7F8"
-        android:orientation="vertical">
+        android:layout_marginTop="43sp"
+        android:background="#FF88C7F8"/>
 
 
-        <TextView
-            android:id="@+id/sum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3sp"
-            android:text="Grade list"
-            android:textColor="#ffffff"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53sp"
+        android:text="Grade list"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10sp"
+        />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="409dp"
-            android:layout_height="650dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/list_row"
-            />
+    <TextView
+        android:text="과목명"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="88sp"
+        android:layout_marginLeft="85dp"
+        />
+
+    <TextView
+        android:text="점수"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="88sp"
+        android:layout_marginLeft="250dp"
+        />
+
+    <TextView
+        android:text="학점"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="88sp"
+        android:layout_marginLeft="340dp"
+        />
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="108dp"
+        tools:listitem="@layout/list_row"
+        />
 
-    </TableLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_button"
@@ -116,7 +149,7 @@
         android:layout_marginBottom="45dp"
         android:alpha="0.4"
         android:visibility="gone"
-         />
+        />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

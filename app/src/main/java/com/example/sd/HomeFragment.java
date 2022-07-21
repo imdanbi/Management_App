@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
     LinearLayout btn_tt;
     LinearLayout btn_quiz;
     LinearLayout btn_search;
+    LinearLayout btn_timer;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -131,6 +132,15 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
+        btn_timer=(LinearLayout) view.findViewById(R.id.btn_timer);
+        btn_timer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getActivity(), Time_Activity.class);
+                startActivity(intent1);
+            }
+        });
+
         btn_search = (LinearLayout) view.findViewById(R.id.btn_search);
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override

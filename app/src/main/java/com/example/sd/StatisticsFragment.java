@@ -2,12 +2,10 @@ package com.example.sd;
 
 
 
-import static android.content.ContentValues.TAG;
 import static com.example.sd.MemoFragment.ADD_NODE_REQUEST;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,7 +36,6 @@ public class StatisticsFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final Object TABLE_NAME = "grade_list1" ;
 
 
     // TODO: Rename and change types of parameters
@@ -77,25 +73,30 @@ public class StatisticsFragment extends Fragment {
     RecyclerView recyclerView;
     FloatingActionButton add_button;
     MyDatabaseHelper myDB;
-    SQLiteDatabase db;
-    ArrayList<String> grade_id, grade_semester, grade_result;
+    ArrayList<String> grade_id,grade_subject, grade_grade, grade_school;
     CustomAdapter customAdapter;
+
+
 
     public void onActivityCreated(Bundle b) {
         super.onActivityCreated(b);
         add_course = (ImageView) getView().findViewById(R.id.add_course);
+
+
         recyclerView = (RecyclerView)getView().findViewById(R.id.recyclerView);
         add_button = (FloatingActionButton) getView().findViewById(R.id.add_button);
         empty_imageview = (ImageView) getView().findViewById(R.id.empty_imageview);
         no_data = (TextView) getView().findViewById(R.id.no_data);
 
-       add_course.setOnClickListener(new View.OnClickListener() {
+
+        add_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), add_grade_activity.class);
                 startActivityForResult(intent,ADD_NODE_REQUEST);
             }
         });
+
 
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,20 +107,17 @@ public class StatisticsFragment extends Fragment {
         });
 
         myDB = new MyDatabaseHelper(getActivity());
-        db = myDB.getWritableDatabase();
-
         grade_id = new ArrayList<>();
-        grade_semester = new ArrayList<>();
-        grade_result = new ArrayList<>();
+        grade_subject = new ArrayList<>();
+        grade_grade = new ArrayList<>();
+        grade_school = new ArrayList<>();
 
         storeDataInArrays();
-        customAdapter = new CustomAdapter(getActivity(),getActivity(), grade_id, grade_semester, grade_result);
+        customAdapter = new CustomAdapter(getActivity(),getActivity(), grade_id, grade_subject, grade_grade,grade_school);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     }
-
-
 
     void storeDataInArrays(){
         Cursor cursor = myDB.readALLData();
@@ -129,8 +127,9 @@ public class StatisticsFragment extends Fragment {
         }else{
             while (cursor.moveToNext()){
                 grade_id.add(cursor.getString(0));
-                grade_semester.add(cursor.getString(1));
-                grade_result.add(cursor.getString(2));
+                grade_subject.add(cursor.getString(1));
+                grade_grade.add(cursor.getString(2));
+                grade_school.add(cursor.getString(3));
 
             }
             empty_imageview.setVisibility(View.GONE);
@@ -145,7 +144,7 @@ public class StatisticsFragment extends Fragment {
 
 
     @Override
-     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1){
             setRetainInstance(true);

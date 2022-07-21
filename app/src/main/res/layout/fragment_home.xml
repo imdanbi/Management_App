@@ -94,7 +94,7 @@
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginStart="20.80dp"
         android:layout_marginEnd="@dimen/_16sdp"
         app:cardBackgroundColor="@color/blue_500"
         android:layout_marginTop="@dimen/_10sdp"
@@ -107,9 +107,9 @@
             android:padding="@dimen/_3sdp">
             <LinearLayout
                 android:id="@+id/btn_tt"
-                android:layout_width="0dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="10.40dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@id/btn_quiz"
@@ -128,12 +128,12 @@
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/btn_quiz"
-                android:layout_width="0dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:gravity="center"
                 android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/btn_search"
+                app:layout_constraintEnd_toStartOf="@id/btn_timer"
                 app:layout_constraintStart_toEndOf="@id/btn_tt"
                 tools:ignore="MissingConstraints">
                 <ImageView
@@ -149,14 +149,36 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/btn_timer"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/btn_search"
+                app:layout_constraintStart_toEndOf="@id/btn_quiz"
+                tools:ignore="MissingConstraints">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/time"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="타이머"
+                    android:textColor="@color/gray" />
+
+            </LinearLayout>
+            <LinearLayout
                 android:id="@+id/btn_search"
-                android:layout_width="0dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btn_quiz"
+                app:layout_constraintStart_toEndOf="@id/btn_timer"
                 tools:ignore="MissingConstraints">
                 <ImageView
                     android:layout_width="50dp"

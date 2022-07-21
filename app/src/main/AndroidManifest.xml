@@ -13,11 +13,30 @@
         android:theme="@style/Theme.SD"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Time_Activity"
+            android:exported="false"
+            android:label="TIMER"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity
+            android:name=".pplus5_activity"
+            android:exported="false" />
+        <activity
+            android:name=".pplus4_activity"
+            android:exported="false" />
+        <activity
+            android:name=".pplus3_activity"
+            android:exported="false" />
+        <activity
+            android:name=".pplus2_activity"
+            android:exported="false" />
+        <activity
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
             android:name=".pplus_activity__"
-            android:exported="false" />
+            android:exported="false"
+            android:label="정보처리기사 Quiz"
+            android:theme="@style/Theme.AppCompat.Light"/>
         <activity
             android:name=".Update_activity"
             android:exported="false"
@@ -25,7 +44,7 @@
         <activity
             android:name=".Add_activity"
             android:exported="false"
-            android:label="Modify Grade and Quiz"
+            android:label="Modify Grade List"
             android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".EditActivity"
