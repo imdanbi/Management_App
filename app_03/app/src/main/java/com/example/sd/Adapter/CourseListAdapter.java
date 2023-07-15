@@ -1,0 +1,73 @@
+package com.example.sd.Adapter;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+
+import com.example.sd.Course;
+import com.example.sd.MainActivity;
+import com.example.sd.R;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
+
+public class CourseListAdapter extends BaseAdapter {
+
+    private Context context;
+    private List<Course> courseList;
+    private Fragment parent;
+
+    public CourseListAdapter(Context context, List<Course> courseList, Fragment parent){
+        this.context=context;
+        this.courseList=courseList;
+        this.parent = parent;
+    }
+    @Override
+    public int getCount() {
+        return courseList.size();
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return courseList.get(i);
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View v = View.inflate(context, R.layout.course, null);
+        TextView courseGrade = (TextView) v.findViewById(R.id.courseGrade);
+        TextView courseTerm = (TextView) v.findViewById(R.id.courseTerm);
+        TextView courseTitle = (TextView) v.findViewById(R.id.courseTitle);
+        TextView courseArea = (TextView) v.findViewById(R.id.courseArea);
+        TextView courseCredit = (TextView) v.findViewById(R.id.courseCredit);
+        TextView courseID = (TextView) v.findViewById(R.id.courseID);
+
+        courseTitle.setText(courseList.get(i).getCourseTitle());
+        courseCredit.setText(courseList.get(i).getCourseCredit());
+        courseTerm.setText(courseList.get(i).getCourseTerm());
+        courseGrade.setText(courseList.get(i).getCourseGrade());
+        courseArea.setText(courseList.get(i).getCourseArea());
+        courseID.setText(courseList.get(i).getCourseID()+"");
+
+        Button addButton = (Button) v.findViewById(R.id.addButton);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userID = MainActivity.userID;
+            }
+        });
+
+        return v;
+    }
+}
